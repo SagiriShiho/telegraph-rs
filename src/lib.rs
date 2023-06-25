@@ -373,7 +373,7 @@ impl Telegraph {
             let part = file.part()?;
             form = form.part(i.to_string(), part);
         }
-        let response = send!(client.post("https://telegra.ph/upload").multipart(form))?;
+        let response = send!(client.post("https://pingdanzhen-ph.pages.dev/upload").multipart(form))?;
 
         match response.json::<UploadResult>().await? {
             UploadResult::Error { error } => Err(Error::ApiError(error)),
